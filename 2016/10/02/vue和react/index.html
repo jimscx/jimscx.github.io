@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue react," />
 
 
 
@@ -84,15 +84,22 @@
 
 
 
-<meta name="description" content="学习总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="jimscx">
-<meta property="og:url" content="jimscx.top/index.html">
+<meta name="description" content="1.react入坑react的jsx语法着实让人用着挺爽的，不用再去拼接html字符串了。jQuery也几乎可以摒弃了。。。但是当遇到Flux—&amp;gt;redux 的时候感觉真的很是反人类。react语法看官网就很容易理解，抓住state和props,操作它们就好，可是redux真的不太容易理解。
+1.1. 语法看官网就可，使用vscode编码下载jsx语法插件也是很舒服的
+virtualDom">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react 入门">
+<meta property="og:url" content="jimscx.top/2016/10/02/vue和react/index.html">
 <meta property="og:site_name" content="jimscx">
-<meta property="og:description" content="学习总结">
+<meta property="og:description" content="1.react入坑react的jsx语法着实让人用着挺爽的，不用再去拼接html字符串了。jQuery也几乎可以摒弃了。。。但是当遇到Flux—&amp;gt;redux 的时候感觉真的很是反人类。react语法看官网就很容易理解，抓住state和props,操作它们就好，可是redux真的不太容易理解。
+1.1. 语法看官网就可，使用vscode编码下载jsx语法插件也是很舒服的
+virtualDom">
+<meta property="og:updated_time" content="2016-10-28T14:56:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jimscx">
-<meta name="twitter:description" content="学习总结">
+<meta name="twitter:title" content="react 入门">
+<meta name="twitter:description" content="1.react入坑react的jsx语法着实让人用着挺爽的，不用再去拼接html字符串了。jQuery也几乎可以摒弃了。。。但是当遇到Flux—&amp;gt;redux 的时候感觉真的很是反人类。react语法看官网就很容易理解，抓住state和props,操作它们就好，可是redux真的不太容易理解。
+1.1. 语法看官网就可，使用vscode编码下载jsx语法插件也是很舒服的
+virtualDom">
 
 
 
@@ -113,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="jimscx.top/"/>
+  <link rel="canonical" href="jimscx.top/2016/10/02/vue和react/"/>
 
-  <title> jimscx </title>
+  <title> react 入门 | jimscx </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +143,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +250,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -267,10 +272,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/10/02/vue和react/" itemprop="url">
-                  react 入门
-                </a>
+                react 入门
               
             
           </h1>
@@ -310,9 +312,7 @@
       
 
       
-        
-          
-            <h4 id="1-react入坑"><a href="#1-react入坑" class="headerlink" title="1.react入坑"></a>1.react入坑</h4><p>react的jsx语法着实让人用着挺爽的，不用再去拼接html字符串了。jQuery也几乎可以摒弃了。。。但是当遇到Flux—&gt;redux 的时候感觉真的很是反人类。<br>react语法看官网就很容易理解，抓住state和props,操作它们就好，可是redux真的不太容易理解。</p>
+        <h4 id="1-react入坑"><a href="#1-react入坑" class="headerlink" title="1.react入坑"></a>1.react入坑</h4><p>react的jsx语法着实让人用着挺爽的，不用再去拼接html字符串了。jQuery也几乎可以摒弃了。。。但是当遇到Flux—&gt;redux 的时候感觉真的很是反人类。<br>react语法看官网就很容易理解，抓住state和props,操作它们就好，可是redux真的不太容易理解。</p>
 <h4 id="1-1-语法"><a href="#1-1-语法" class="headerlink" title="1.1. 语法"></a>1.1. 语法</h4><p>看官网就可，使用vscode编码下载jsx语法插件也是很舒服的</p>
 <h4 id="virtualDom"><a href="#virtualDom" class="headerlink" title="virtualDom"></a>virtualDom</h4><ul>
 <li><p>原生的dom<br> 当你用document.createElement()创建一个空的Element的时候（比如创建一个空的div），有以下这几页的东西需要实现（当然， 这不是标准，只是个大概的意思）：<br>HTMLElement - Web API Interfaces<br>Element - Web API Interfaces<br>GlobalEventHandlers<br>非常非常多，并且还有不少嵌套引用，反正就是慢。</p>
@@ -375,297 +375,64 @@
 </ol>
 <h4 id="1-5-react-的state和props"><a href="#1-5-react-的state和props" class="headerlink" title="1.5. react 的state和props"></a>1.5. react 的state和props</h4><p>props 的区别在于 state只存在组件的内部，props 在所有实例中共享。所以说别调用 this.setProps 或者 直接修改 this.props，把它当成只读的数据最好。props就是牵一发动全身的主。</p>
 <h4 id="1-6-父子组件的通信"><a href="#1-6-父子组件的通信" class="headerlink" title="1.6 父子组件的通信"></a>1.6 父子组件的通信</h4>
-          
+      
+    </div>
+
+    <div>
+      
         
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="jimscx wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信，和我为友！</div>
+</div>
+
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/01/docker-入门/" itemprop="url">
-                  docker 入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-01T21:22:33+08:00" content="2016-09-01">
-              2016-09-01
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/vue-react/" rel="tag">#vue react</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h4 id="1-dcoker-环境安装"><a href="#1-dcoker-环境安装" class="headerlink" title="1. dcoker 环境安装"></a>1. dcoker 环境安装</h4><p>在本机玩docker,到<a href="https://docs.docker.com/engine/getstarted/step_one/" target="_blank" rel="external">官网</a>,使用的环境是mac</p>
-<h4 id="2-docker-容器和镜像"><a href="#2-docker-容器和镜像" class="headerlink" title="2.docker 容器和镜像"></a>2.docker 容器和镜像</h4><p>docker镜像在我的理解中就是一个小型的linux系统的压缩包，而容器就是根据这个压缩包启动一个Linux环境，在制作镜像的时候你可以给这个Linux系统安装好多的工具和环境，比如GCC,vim,node……<br>当制作好一个镜像后然后启动这个镜像就形成了一个docker容器，ok 现在你可以进入这个容器了，里面有根据你的镜像形成的环境。</p>
-<h4 id="2-1-docker镜像的制作"><a href="#2-1-docker镜像的制作" class="headerlink" title="2.1. docker镜像的制作"></a>2.1. docker镜像的制作</h4><p>大多数的时候我们可以去<a href="https://hub.docker.com/" target="_blank" rel="external">dokerhub上</a>寻找需要的，然后pull。根据基础镜像搭建自己的镜像那就需要书写Dockerfile了，其实这个文件和Makefile有点像，书写好之后docker build 一下就好啦</p>
-<h4 id="2-1-1-Dockerfile"><a href="#2-1-1-Dockerfile" class="headerlink" title="2.1.1 Dockerfile"></a>2.1.1 Dockerfile</h4><p> Dockfile是一种被Docker程序解释的脚本，Dockerfile由一条一条的指令组成，每条指令对应Linux下面的一条命令。Docker程序将这些Dockerfile指令翻译真正的Linux命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># VERSION    1.0.0 </div><div class="line"></div><div class="line">FROM daocloud.io/node:5 #基于哪个镜像</div><div class="line"></div><div class="line"># 指定端口</div><div class="line">ENV HTTP_PORT 8000</div><div class="line"></div><div class="line"># 复制当前文件夹中的所有文件到镜像中的 /genee-wechat 中，指定启动容器时的工作目录也就是cd命令</div><div class="line">COPY . /genee-wechat</div><div class="line">WORKDIR /genee-wechat</div><div class="line"></div><div class="line"># 安装软件用</div><div class="line">RUN npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist install \</div><div class="line">    &amp;&amp; npm install  gulp -g </div><div class="line"></div><div class="line">EXPOSE 8000</div><div class="line"></div><div class="line"># container启动时执行的命令，但是一个Dockerfile中只能有一条CMD命令，多条则只执行最后一条CMD.</div><div class="line">CMD [&quot;npm&quot;, &quot;start&quot;]</div></pre></td></tr></table></figure></p>
-<ul>
-<li>创建镜像<code>docker build -t &lt;镜像名&gt; &lt;Dockerfile路径&gt;</code> 比如：</li>
-</ul>
-<blockquote>
-<p> 如Dockerfile在当前路径： docker build -t xx/gitlab .</p>
-</blockquote>
-<h5 id="以下是常用的的和镜像有关的几个命令"><a href="#以下是常用的的和镜像有关的几个命令" class="headerlink" title="以下是常用的的和镜像有关的几个命令"></a>以下是常用的的和镜像有关的几个命令</h5><ul>
-<li><p>拉取镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker pull &lt;镜像名:tag&gt;</div><div class="line">docker pull node:0.12.5</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看已经拉取得镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker images</div></pre></td></tr></table></figure>
-</li>
-<li><p>删除镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rmi xxx:tag</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="docker-容器"><a href="#docker-容器" class="headerlink" title="docker 容器"></a>docker 容器</h4><ul>
-<li>根据镜像创建自己的docker容器并启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name jimscx.node -i -t -p 9003:9000 -p 9013:9010 -d -v /User/home:/home node</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>–name 指定容器的名字 -p端口映射(容器外的端口：容器里的端口)可以有多个端口映射只是不要和别的容器的冲突就好 -i表示同步container的stdin，-t表示同步container的输出，-d表示deamon，以后台启动这个container -v:目录映射 （容器外的目录：容器里边的目录） 最后是镜像的名字</p>
-</blockquote>
-<ul>
-<li><p>进入自己创建的容器<br><code>docker exec -it xxx bash</code></p>
-<blockquote>
-<p>xxx便是容器的名字</p>
-</blockquote>
-</li>
-<li><p>查看正在运行的容器</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker ps</div><div class="line">docker ps -a为查看所有的容器，包括已经停止的。</div></pre></td></tr></table></figure>
-<ul>
-<li>查看容器详情</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker inspect xxxx</div></pre></td></tr></table></figure>
-<ul>
-<li>查看容log</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker logs xxxx</div></pre></td></tr></table></figure>
-<ul>
-<li>删除单个容器</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker rm &lt;容器名orID&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>停止、启动、杀死一个容器</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker stop &lt;容器名orID&gt;</div><div class="line">docker start &lt;容器名orID&gt;</div><div class="line">docker kill &lt;容器名orID&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/09/01/docker-入门/" rel="next" title="docker 入门">
+                <i class="fa fa-chevron-left"></i> docker 入门
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/08/27/hexo-生成blog/" itemprop="url">
-                  hexo 如何生成blog
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-27T22:13:06+08:00" content="2016-08-27">
-              2016-08-27
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h4 id="1-环境"><a href="#1-环境" class="headerlink" title="1.环境"></a>1.环境</h4><p> 首先你的本机需要有git node.js 环境这是必须</p>
-<h4 id="2-hexo-配置"><a href="#2-hexo-配置" class="headerlink" title="2. hexo 配置"></a>2. hexo 配置</h4><ul>
-<li>在mac环境下 <code>sudo npm install -g hexo</code>全局安装hexo</li>
-<li><code>mkdir blog</code>用于存放你的hexo项目，<code>cd blog</code>进入目录执行<code>hexo init</code><br>就是这样简单，你的blog就这样ok了，接下来执行<code>hexo g</code>生成静态页面，启动服务<code>hexo server</code>,现在就可以在本地浏览了</li>
-<li>现在把它配置到自己的github仓库里，<code>vim _config.yml</code>编辑文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/jimscx/jimscx.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>所有的配置都在<code>_config.yml</code>文件中,尽情的修改~~~~</p>
-<ul>
-<li>执行<code>npm install hexo-deployer-git --save</code><br>然后，执行配置命令：<code>hexo deploy</code>,ok至此就可以访问了<code>https://github.com/jimscx.io</code></li>
-</ul>
-<h4 id="3-发表个文章"><a href="#3-发表个文章" class="headerlink" title="3.发表个文章"></a>3.发表个文章</h4><ul>
-<li><code>hexo new &quot;name&quot;</code>,看到在source目录下生成了一个md文档,打开文档编辑你的blog文章 <h4 id="发表也就是这几个命令"><a href="#发表也就是这几个命令" class="headerlink" title="发表也就是这几个命令"></a>发表也就是这几个命令</h4></li>
-<li><code>hexo clean</code> </li>
-<li><code>hexo generate</code> 简写为 <code>hexo g</code></li>
-<li><code>hexo deploy</code> 简写为 <code>hexo d</code></li>
-</ul>
-<h4 id="4-使用个美美的主题吧"><a href="#4-使用个美美的主题吧" class="headerlink" title="4.使用个美美的主题吧"></a>4.使用个美美的主题吧</h4><ul>
-<li>可以去这里寻找喜欢的<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">主题</a> next主题<code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></li>
-<li>修改配置文件_config<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: next</div></pre></td></tr></table></figure></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -673,6 +440,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -692,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -747,6 +527,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-react入坑"><span class="nav-number">1.</span> <span class="nav-text">1.react入坑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-语法"><span class="nav-number">2.</span> <span class="nav-text">1.1. 语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#virtualDom"><span class="nav-number">3.</span> <span class="nav-text">virtualDom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#diff算法"><span class="nav-number">4.</span> <span class="nav-text">diff算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现一个diff算法"><span class="nav-number">5.</span> <span class="nav-text">如何实现一个diff算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-react中的注释"><span class="nav-number">6.</span> <span class="nav-text">1.2. react中的注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-路由的基本使用-react-router"><span class="nav-number">7.</span> <span class="nav-text">1.3. 路由的基本使用 react-router</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-首先使用根路由组件-import-Router-from-39-react-router-39-然后使用-的形式把你定义的路由规则加载进来"><span class="nav-number">8.</span> <span class="nav-text">1.3.1 首先使用根路由组件 import Router from 'react-router';然后使用{} 的形式把你定义的路由规则加载进来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-react-路由中参数的获取"><span class="nav-number">9.</span> <span class="nav-text">1.3.2 react 路由中参数的获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-react的生命周期"><span class="nav-number">10.</span> <span class="nav-text">1.4. react的生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-react-的state和props"><span class="nav-number">11.</span> <span class="nav-text">1.5. react 的state和props</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-父子组件的通信"><span class="nav-number">12.</span> <span class="nav-text">1.6 父子组件的通信</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -850,6 +641,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
