@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about.html" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -246,6 +246,124 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/30/webpack-入门/" itemprop="url">
+                  webpack 入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-30T16:07:32+08:00" content="2016-10-30">
+              2016-10-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/30/webpack-入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/30/webpack-入门/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-webpack-基本配置"><a href="#1-webpack-基本配置" class="headerlink" title="1. webpack 基本配置"></a>1. webpack 基本配置</h4><h4 id="1-1-setup"><a href="#1-1-setup" class="headerlink" title="1.1 setup"></a>1.1 setup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> npm init</div><div class="line"> npm install webpack --save-dev # 全局安装依赖</div><div class="line"># or</div><div class="line"> npm install webpack-dev-server --save-dev # 安装webpack调试工具</div></pre></td></tr></table></figure>
+<h4 id="1-2-config"><a href="#1-2-config" class="headerlink" title="1.2 config"></a>1.2 config</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">const webpack = require(&apos;webpack&apos;);</div><div class="line">const path = require(&apos;path&apos;);</div><div class="line"></div><div class="line">// 配置目录</div><div class="line">// 因为我们的webpack.config.js文件不在项目根目录下，所以需要一个路径的配置</div><div class="line">const path = require(&apos;path&apos;);</div><div class="line">const CURRENT_PATH = path.resolve(__dirname); // 获取到当前目录</div><div class="line">const ROOT_PATH = path.join(__dirname, &apos;../&apos;); // 项目根目录</div><div class="line">const MODULES_PATH = path.join(ROOT_PATH, &apos;./node_modules&apos;); // node包目录</div><div class="line">const BUILD_PATH = path.join(ROOT_PATH, &apos;./public/assets&apos;); // 最后输出放置公共资源的目录</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">  devtool: &apos;eval-source-map&apos;,//这里配置方便调试时使用的source map  如何生成相应格式的source map</div><div class="line">  context: CURRENT_PATH, // 设置webpack配置中指向的默认目录为项目根目录</div><div class="line">  entry: &#123;</div><div class="line">    index: &apos;./public/pages/index.js&apos;,</div><div class="line">    public: &apos;./public/pages/public.js&apos;</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">    path: BUILD_PATH, // 设置输出目录</div><div class="line">    filename: &apos;[name].bundle.js&apos;, // 输出文件名</div><div class="line">  &#125;,</div><div class="line">  resolve: &#123;</div><div class="line">    extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;, &apos;.coffee&apos;] // 配置简写，配置过后，书写该文件路径的时候可以省略文件后缀</div><div class="line">//模块别名定义，方便后续直接引用别名，无须多写长长的地址</div><div class="line">// alias: &#123;</div><div class="line">//     AppStore : &apos;js/stores/AppStores.js&apos;,//后续直接 require(&apos;AppStore&apos;) 即可</div><div class="line">//     ActionType : &apos;js/actions/ActionType.js&apos;,</div><div class="line">//     AppAction : &apos;js/actions/AppAction.js&apos;</div><div class="line">// &#125;</div><div class="line">  &#125;,</div><div class="line">  module: &#123;</div><div class="line">    loaders: [</div><div class="line">      // loader 扔在这里</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  plugins: [</div><div class="line">    // 插件扔在这里</div><div class="line">  ],</div><div class="line">    // 在package中 配置启动服务&quot;dev&quot;: &quot;webpack-dev-server --config ./webpack.config --hot --colors --inline --history-api-fallback &quot;</div><div class="line">    devServer: &#123;</div><div class="line">        // contentBase: &quot;./&quot;,//本地服务器所加载的页面所在的目录</div><div class="line">        // colors: true,//终端中输出结果为彩色</div><div class="line">        // historyApiFallback: true,//不跳转</div><div class="line">        // inline: true//实时刷新</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-webpack中的loaders"><a href="#2-webpack中的loaders" class="headerlink" title="2. webpack中的loaders"></a>2. webpack中的loaders</h4><blockquote>
+<p>loaders被应用于应用程序的资源文件中，通常用来做转换。它们都是函数（运行在nodejs中），将资源文件的源码作为入参，处理完后，返回新的源码文件。</p>
+</blockquote>
+<p>可以使用<code>install css/less/style loader .....</code>处理各种类型的文件</p>
+<p>处理样式文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install less --save-dev # install less</div><div class="line">npm install css-loader style-loader --save-dev # install style-loader, css-loader</div><div class="line">npm install less less-loader --save-dev # 基于style-loader,css-loader</div></pre></td></tr></table></figure>
+<p>用来处理图片和字体文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install file-loader --save-dev</div><div class="line">npm install url-loader --save-dev</div></pre></td></tr></table></figure>
+<p>es6 install babel loader</p>
+<p><code>npm install babel-loader babel-core babel-preset-es2015 --save-dev</code></p>
+<h4 id="2-1-config-loaders"><a href="#2-1-config-loaders" class="headerlink" title="2.1 config loaders"></a>2.1 config loaders</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  module: &#123;</div><div class="line">    loaders: [</div><div class="line">      // style &amp; css &amp; less loader</div><div class="line">      &#123; test: /\.css$/, loader: &quot;style-loader!css-loader&quot;&#125;,</div><div class="line">      &#123; test: /\.less$/, loader: &quot;style-loader!css-loader!less-loader&quot;)&#125;,</div><div class="line">      // babel loader</div><div class="line">      &#123;</div><div class="line">        test: /\.jsx?$/,</div><div class="line">        exclude: /(node_modules|bower_components)/,</div><div class="line">        loader: [&apos;babel-loader&apos;],</div><div class="line">        query: &#123;</div><div class="line">          presets: [&apos;es2015&apos;]</div><div class="line">          // 如果安装了React的话</div><div class="line">          // presets: [&apos;react&apos;, &apos;es2015&apos;]</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      // image &amp; font</div><div class="line">      &#123; test: /\.(woff|woff2|eot|ttf|otf)$/i, loader: &apos;url-loader?limit=8192&amp;name=[name].[ext]&apos;&#125;,</div><div class="line">      &#123; test: /\.(jpe?g|png|gif|svg)$/i, loader: &apos;url-loader?limit=8192&amp;name=[name].[ext]&apos;&#125;,</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="webpack-中的plugin"><a href="#webpack-中的plugin" class="headerlink" title="webpack 中的plugin"></a>webpack 中的plugin</h4><h4 id="ExtractTextPlugin分离CSS"><a href="#ExtractTextPlugin分离CSS" class="headerlink" title="ExtractTextPlugin分离CSS"></a>ExtractTextPlugin分离CSS</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);</div><div class="line">plugins: [</div><div class="line">  // 分离css</div><div class="line">  new ExtractTextPlugin(&apos;[name].bundle.css&apos;, &#123;</div><div class="line">    allChunks: true</div><div class="line">  &#125;),</div><div class="line">]</div></pre></td></tr></table></figure>
+<h4 id="html-webpack-plugin"><a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a>html-webpack-plugin</h4><p>这个插件可以帮助生成 HTML 文件，在 body 元素中，使用 script 来包含所有你的 webpack bundles，只需要在你的 webpack 配置文件中如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;)</div><div class="line"></div><div class="line"> plugins: [</div><div class="line">    new HtmlWebpackPlugin(&#123;</div><div class="line">      title: &apos;My App&apos;,</div><div class="line">      filename: &apos;assets/index.html&apos;</div><div class="line">    &#125;)</div><div class="line"> ]</div></pre></td></tr></table></figure>
+<p>这将会自动在 dist 目录中生成一个名为 index.html 的文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;My App&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;script src=&quot;index_bundle.js&quot;&gt;&lt;/script&gt; </div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -725,7 +843,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -735,7 +853,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
