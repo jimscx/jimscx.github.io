@@ -278,6 +278,143 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/30/nodejs-wechat-开发/" itemprop="url">
+                  nodejs wechat 开发
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-30T22:12:59+08:00" content="2016-10-30">
+              2016-10-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/wechat-开发/" itemprop="url" rel="index">
+                    <span itemprop="name">wechat 开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/30/nodejs-wechat-开发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/30/nodejs-wechat-开发/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="wechat测试账号申请配置"><a href="#wechat测试账号申请配置" class="headerlink" title="wechat测试账号申请配置"></a>wechat测试账号申请配置</h3><h4 id="申请"><a href="#申请" class="headerlink" title="申请"></a>申请</h4><ol>
+<li>首先登录 <a href="https://mp.weixin.qq.com" target="_blank" rel="external">微信公众平台</a>申请开发者微信公众账号</li>
+<li>点击开发者工具–&gt;公众平台测试账号申请</li>
+<li><p>配置自己的服务器url 和tocken</p>
+<p>| URL   | <a href="http://wx-test.xx.cn" target="_blank" rel="external">http://wx-test.xx.cn</a><br>| Token | 8xxxxx</p>
+</li>
+</ol>
+<h3 id="账号配置"><a href="#账号配置" class="headerlink" title="账号配置"></a>账号配置</h3><p>1.nodejs代码验证</p>
+<p>直接访问接口就好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">微信tocken验证</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var crypto = require(&apos;crypto&apos;);</div><div class="line">var router = express.Router();</div><div class="line">var token = &quot;xxxxx0&quot;; //此处需要你自己修改要和微信号中的配置一样！</div><div class="line">/* GET home page. */</div><div class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</div><div class="line">    var signature = req.query.signature;</div><div class="line">    var timestamp = req.query.timestamp;</div><div class="line">    var nonce = req.query.nonce;</div><div class="line">    var echostr = req.query.echostr;</div><div class="line">    /*  加密/校验流程如下： */</div><div class="line">    //1. 将token、timestamp、nonce三个参数进行字典序排序</div><div class="line">    var array = new Array(token, timestamp, nonce);</div><div class="line">    array.sort();</div><div class="line">    var str = array.toString().replace(/,/g, &quot;&quot;);</div><div class="line">    //2. 将三个参数字符串拼接成一个字符串进行sha1加密</div><div class="line">    var sha1Code = crypto.createHash(&quot;sha1&quot;);</div><div class="line">    var code = sha1Code.update(str, &apos;utf-8&apos;).digest(&quot;hex&quot;);</div><div class="line">    //3. 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信</div><div class="line">    if (code === signature) &#123;</div><div class="line">        res.send(echostr)</div><div class="line">    &#125; else &#123;</div><div class="line">        res.send(&quot;error&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">module.exports = router;</div></pre></td></tr></table></figure>
+<p>1.账号授权配置<br>在写授权接口之前一定要先在测试号中（网页授权获取用户基本信息中）配置域名，<br>绝对没有<code>http://</code>正确的是<code>wx-test.genee.cn</code>否则会出现重定向的页面没办法访问；<br>这里使用的是<code>wechat-oauth</code>模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var OAuth = require(&apos;wechat-oauth&apos;);</div><div class="line">       var config = require(&apos;../config/wechat_config.js&apos;);</div><div class="line">    var client = new OAuth(config.appID, config.appsecret);</div><div class="line">    /*网页授权获取用户基本信息，url--&gt;生成重定向地址，这是访问微信的地址，会有好多的参数*/</div><div class="line">    router.get(&apos;/&apos;, function(req, res) &#123;</div><div class="line">        var url = client.getAuthorizeURL(&apos;http://&apos; + config.domain + &apos;/callback&apos;, &apos;&apos;, &apos;snsapi_userinfo&apos;);</div><div class="line">        res.redirect(url);</div><div class="line">    &#125;);</div><div class="line">    /*授权回调*/</div><div class="line">    router.get(&apos;/callback&apos;, function(req, res) &#123;</div><div class="line">        var code = req.query.code;</div><div class="line">        //获取基本tocken信息</div><div class="line">        client.getAccessToken(code, function(err, result) &#123;</div><div class="line">            if (err) console.log(err);</div><div class="line">            //console.log(result);</div><div class="line">            var openid = result.data.openid;</div><div class="line">            //console.log(openid);</div><div class="line">            //获取用户基本信息</div><div class="line">            client.getUser(openid, function(err, result) &#123;</div><div class="line">                var userInfo = result;</div><div class="line">                console.log(userInfo);</div><div class="line">            &#125;);</div><div class="line">            //获取信息成功之后转到要显示的页面</div><div class="line">            res.redirect(&apos;/index&apos;);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<h3 id="菜单的生成"><a href="#菜单的生成" class="headerlink" title="菜单的生成"></a>菜单的生成</h3><p>使用的模块是wechat-api<br>route:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var createMeanu = require(&apos;./wx_api&apos;);</div><div class="line">router.get(&apos;/menu&apos;, function(req, res) &#123;</div><div class="line">    createMeanu();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>config.js 放威信的基本配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    appID: &quot;xxxxxxxxxxxx&quot;,</div><div class="line">    appsecret: &quot;xxxxxxxxxxxxxx&quot;,</div><div class="line">    URL: &quot;http://wx-test.cn&quot;,</div><div class="line">    Token: &quot;xxxxxxxxx&quot;,</div><div class="line">    domain:&quot;wx-test.cn&quot;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>wx_api:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var config = require(&apos;../config/wechat_config.js&apos;);</div><div class="line">var menu = JSON.stringify(require(&apos;../config/menu.json&apos;));</div><div class="line">var WechatAPI = require(&apos;wechat-api&apos;);</div><div class="line">var api = new WechatAPI(config.appID, config.appsecret);</div><div class="line">function app()&#123;</div><div class="line">    api.createMenu(menu, function(err, result) &#123;</div><div class="line">        if (err) &#123;</div><div class="line">            console.log(err)</div><div class="line">        &#125; else &#123;</div><div class="line">            console.log(&apos;创建成功:&apos;+result)</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">module.exports = app;</div></pre></td></tr></table></figure>
+<h4 id="创建menu-json文件"><a href="#创建menu-json文件" class="headerlink" title="创建menu.json文件:"></a>创建menu.json文件:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;button&quot;: [&#123;</div><div class="line">    &quot;type&quot;: &quot;click&quot;,</div><div class="line">    &quot;name&quot;: &quot;扫码&quot;,</div><div class="line">    &quot;key&quot;: &quot;V1001_TODAY_MUSIC&quot;</div><div class="line">  &#125;,&#123;</div><div class="line">    &quot;name&quot;: &quot;科研管理&quot;,</div><div class="line">    &quot;sub_button&quot;: [</div><div class="line">      &#123;</div><div class="line">        &quot;type&quot;: &quot;view&quot;,</div><div class="line">        &quot;name&quot;: &quot;我的预约&quot;,</div><div class="line">        &quot;url&quot;: &quot;http://wx-test.genee.cn/&quot;</div><div class="line">      &#125;, &#123;</div><div class="line">        &quot;type&quot;: &quot;view&quot;,</div><div class="line">        &quot;name&quot;: &quot;我的送样&quot;,</div><div class="line">        &quot;url&quot;: &quot;http://wx-test.genee.cn/&quot;</div><div class="line">      &#125;,&#123;</div><div class="line">        &quot;type&quot;: &quot;view&quot;,</div><div class="line">        &quot;name&quot;: &quot;仪器列表&quot;,</div><div class="line">        &quot;url&quot;: &quot;http://wx-test.genee.cn/&quot;</div><div class="line">      &#125;,&#123;</div><div class="line">        &quot;type&quot;: &quot;view&quot;,</div><div class="line">        &quot;name&quot;: &quot;历史记录&quot;,</div><div class="line">        &quot;url&quot;: &quot;http://wx-test.genee.cn/&quot;</div><div class="line">      &#125;,&#123;</div><div class="line">        &quot;type&quot;: &quot;view&quot;,</div><div class="line">        &quot;name&quot;: &quot;关注仪器&quot;,</div><div class="line">        &quot;url&quot;: &quot;http://wx-test.genee.cn/&quot;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;,&#123;</div><div class="line">    &quot;name&quot;: &quot;帮助&quot;,</div><div class="line">    &quot;sub_button&quot;:[</div><div class="line">      &#123;</div><div class="line">        &quot;type&quot;: &quot;view&quot;,</div><div class="line">        &quot;name&quot;: &quot;账号绑定说明&quot;,</div><div class="line">        &quot;url&quot;: &quot;http://wx-test.genee.cn/&quot;</div><div class="line">      &#125;, &#123;</div><div class="line">        &quot;type&quot;: &quot;view&quot;,</div><div class="line">        &quot;name&quot;: &quot;使用仪器说明&quot;,</div><div class="line">        &quot;url&quot;: &quot;http://wx-test.genee.cn/&quot;</div><div class="line">      &#125;,&#123;</div><div class="line">        &quot;type&quot;: &quot;view&quot;,</div><div class="line">        &quot;name&quot;: &quot;联系客服&quot;,</div><div class="line">        &quot;url&quot;: &quot;http://wx-test.genee.cn/&quot;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/30/webpack-入门/" itemprop="url">
                   webpack 入门
                 </a>
@@ -929,7 +1066,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -937,7 +1074,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -946,7 +1083,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
