@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="utils blog," />
+  <meta name="keywords" content="gulp," />
 
 
 
@@ -84,28 +84,52 @@
 
 
 
-<meta name="description" content="1.环境 首先你的本机需要有git node.js 环境这是必须
-2. hexo 配置
-在mac环境下 sudo npm install -g hexo全局安装hexo
-mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就是这样简单，你的blog就这样ok了，接下来执行hexo g生成静态页面，启动服务hexo server,现在就可以在本地浏览了
-现在把它">
+<meta name="description" content="gulp-browserSync1.什么是gulp?
+可以点击这里了解它gulp讲解
+常用gulp组件
+gulp-minify-css压缩css
+browser-sync静态文件服务器，同时也支持浏览器自动刷新 
+gulp-uglify通过UglifyJS来压缩JS文件
+gulp-concat合并JS
+gulp-less将less预处理为css
+gulp-sass将sass预处理为css
+
+
+
+2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo 如何生成blog">
-<meta property="og:url" content="jimscx.top/2016/08/27/hexo-生成blog/index.html">
+<meta property="og:title" content="gulp 入门">
+<meta property="og:url" content="jimscx.top/2016/08/02/gulp-入门/index.html">
 <meta property="og:site_name" content="jimscx">
-<meta property="og:description" content="1.环境 首先你的本机需要有git node.js 环境这是必须
-2. hexo 配置
-在mac环境下 sudo npm install -g hexo全局安装hexo
-mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就是这样简单，你的blog就这样ok了，接下来执行hexo g生成静态页面，启动服务hexo server,现在就可以在本地浏览了
-现在把它">
-<meta property="og:updated_time" content="2016-10-30T13:31:36.000Z">
+<meta property="og:description" content="gulp-browserSync1.什么是gulp?
+可以点击这里了解它gulp讲解
+常用gulp组件
+gulp-minify-css压缩css
+browser-sync静态文件服务器，同时也支持浏览器自动刷新 
+gulp-uglify通过UglifyJS来压缩JS文件
+gulp-concat合并JS
+gulp-less将less预处理为css
+gulp-sass将sass预处理为css
+
+
+
+2">
+<meta property="og:updated_time" content="2016-11-02T03:37:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo 如何生成blog">
-<meta name="twitter:description" content="1.环境 首先你的本机需要有git node.js 环境这是必须
-2. hexo 配置
-在mac环境下 sudo npm install -g hexo全局安装hexo
-mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就是这样简单，你的blog就这样ok了，接下来执行hexo g生成静态页面，启动服务hexo server,现在就可以在本地浏览了
-现在把它">
+<meta name="twitter:title" content="gulp 入门">
+<meta name="twitter:description" content="gulp-browserSync1.什么是gulp?
+可以点击这里了解它gulp讲解
+常用gulp组件
+gulp-minify-css压缩css
+browser-sync静态文件服务器，同时也支持浏览器自动刷新 
+gulp-uglify通过UglifyJS来压缩JS文件
+gulp-concat合并JS
+gulp-less将less预处理为css
+gulp-sass将sass预处理为css
+
+
+
+2">
 
 
 
@@ -126,9 +150,9 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
 
 
 
-  <link rel="canonical" href="jimscx.top/2016/08/27/hexo-生成blog/"/>
+  <link rel="canonical" href="jimscx.top/2016/08/02/gulp-入门/"/>
 
-  <title> hexo 如何生成blog | jimscx </title>
+  <title> gulp 入门 | jimscx </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -288,7 +312,7 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
             
             
               
-                hexo 如何生成blog
+                gulp 入门
               
             
           </h1>
@@ -300,8 +324,8 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-27T22:13:06+08:00" content="2016-08-27">
-              2016-08-27
+            <time itemprop="dateCreated" datetime="2016-08-02T11:34:57+08:00" content="2016-08-02">
+              2016-08-02
             </time>
           </span>
 
@@ -314,8 +338,8 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/前端自动化/" itemprop="url" rel="index">
+                    <span itemprop="name">前端自动化</span>
                   </a>
                 </span>
 
@@ -330,8 +354,8 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/27/hexo-生成blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/hexo-生成blog/" itemprop="commentsCount"></span>
+                <a href="/2016/08/02/gulp-入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/gulp-入门/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -354,28 +378,34 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
       
 
       
-        <h4 id="1-环境"><a href="#1-环境" class="headerlink" title="1.环境"></a>1.环境</h4><p> 首先你的本机需要有git node.js 环境这是必须</p>
-<h4 id="2-hexo-配置"><a href="#2-hexo-配置" class="headerlink" title="2. hexo 配置"></a>2. hexo 配置</h4><ul>
-<li>在mac环境下 <code>sudo npm install -g hexo</code>全局安装hexo</li>
-<li><code>mkdir blog</code>用于存放你的hexo项目，<code>cd blog</code>进入目录执行<code>hexo init</code><br>就是这样简单，你的blog就这样ok了，接下来执行<code>hexo g</code>生成静态页面，启动服务<code>hexo server</code>,现在就可以在本地浏览了</li>
-<li>现在把它配置到自己的github仓库里，<code>vim _config.yml</code>编辑文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/jimscx/jimscx.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+        <h1 id="gulp-browserSync"><a href="#gulp-browserSync" class="headerlink" title="gulp-browserSync"></a>gulp-browserSync</h1><h3 id="1-什么是gulp"><a href="#1-什么是gulp" class="headerlink" title="1.什么是gulp?"></a>1.什么是<a href="http://gulpjs.com/" target="_blank" rel="external">gulp</a>?</h3><ul>
+<li>可以点击这里了解它<a href="http://i5ting.github.io/stuq-gulp/#101" target="_blank" rel="external">gulp讲解</a></li>
+<li>常用gulp组件<ul>
+<li><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="external">gulp-minify-css</a>压缩css</li>
+<li><a href="http://www.browsersync.io/" target="_blank" rel="external">browser-sync</a>静态文件服务器，同时也支持浏览器自动刷新 </li>
+<li><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="external">gulp-uglify</a>通过UglifyJS来压缩JS文件</li>
+<li><a href="https://www.npmjs.com/package/gulp-concat" target="_blank" rel="external">gulp-concat</a>合并JS</li>
+<li><a href="https://www.npmjs.com/package/gulp-less" target="_blank" rel="external">gulp-less</a>将less预处理为css</li>
+<li><a href="https://www.npmjs.com/package/gulp-sass" target="_blank" rel="external">gulp-sass</a>将sass预处理为css</li>
+</ul>
 </li>
 </ul>
-<p>所有的配置都在<code>_config.yml</code>文件中,尽情的修改~~~~</p>
-<ul>
-<li>执行<code>npm install hexo-deployer-git --save</code><br>然后，执行配置命令：<code>hexo deploy</code>,ok至此就可以访问了<code>https://github.com/jimscx.io</code></li>
+<h3 id="2-什么是browserSync"><a href="#2-什么是browserSync" class="headerlink" title="2.什么是browserSync?"></a>2.什么是browserSync?</h3><ul>
+<li>可以点击这里了解它<a href="http://www.browsersync.cn/" target="_blank" rel="external">browserSync</a></li>
 </ul>
-<h4 id="3-发表个文章"><a href="#3-发表个文章" class="headerlink" title="3.发表个文章"></a>3.发表个文章</h4><ul>
-<li><code>hexo new &quot;name&quot;</code>,看到在source目录下生成了一个md文档,打开文档编辑你的blog文章 <h4 id="发表也就是这几个命令"><a href="#发表也就是这几个命令" class="headerlink" title="发表也就是这几个命令"></a>发表也就是这几个命令</h4></li>
-<li><code>hexo clean</code> </li>
-<li><code>hexo generate</code> 简写为 <code>hexo g</code></li>
-<li><code>hexo deploy</code> 简写为 <code>hexo d</code></li>
+<h3 id="3-实际使用"><a href="#3-实际使用" class="headerlink" title="3.实际使用"></a>3.实际使用</h3><ul>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev gulp</div><div class="line">npm install --save-dev browser-sync</div></pre></td></tr></table></figure>
+</li>
+<li><p>请求模块和使用模块</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var browserSync = require(&apos;browser-sync&apos;);</div><div class="line">var less = require(&apos;gulp-less&apos;); //把less文件编译成css文件</div><div class="line"></div><div class="line">//编译less文件</div><div class="line">gulp.task(&apos;build_less&apos;, function () &#123;</div><div class="line">    gulp.src(&quot;./public/css/main.less&quot;)</div><div class="line">      .pipe(less())</div><div class="line">      .pipe(gulp.dest(&apos;./public/css/&apos;))</div><div class="line">      .pipe(browserSync.reload(&#123;stream: true&#125;));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"> // 监听 .less .html 文件</div><div class="line">gulp.task(&apos;less_server&apos;,[&apos;build_less&apos;] ,function () &#123;</div><div class="line">    browserSync.init(&#123;</div><div class="line">      proxy: &quot;http://127.0.0.1:3005/iscroll.html?id=1&amp;openid=2#buy&quot;</div><div class="line">    &#125;)</div><div class="line">    gulp.watch(&apos;./public/css/main.less&apos;, [&apos;build_less&apos;]);</div><div class="line">    gulp.watch(&apos;./public/*.html&apos;,function () &#123;</div><div class="line">      browserSync.reload();</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="4-使用个美美的主题吧"><a href="#4-使用个美美的主题吧" class="headerlink" title="4.使用个美美的主题吧"></a>4.使用个美美的主题吧</h4><ul>
-<li>可以去这里寻找喜欢的<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">主题</a> next主题<code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></li>
-<li>修改配置文件_config<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: next</div></pre></td></tr></table></figure></li>
-</ul>
-
+<pre><code>* `browserSync.init()` 启动Browsersync服务。这将启动一个服务器，代理服务器或静态服务器，这取决于你实际需要。 
+* `proxy` 开始一个Browsersync代理
+* `browserSync.reload()` 重载，浏览器自动刷新
+* 当gulp监控（watch）一个文件，文件变化的时候就会启动浏览器重新加载，不用我们手动刷新了
+</code></pre>
       
     </div>
 
@@ -423,7 +453,7 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
       
         <div class="post-tags">
           
-            <a href="/tags/utils-blog/" rel="tag">#utils blog</a>
+            <a href="/tags/gulp/" rel="tag">#gulp</a>
           
         </div>
       
@@ -432,16 +462,12 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/02/gulp-入门/" rel="next" title="gulp 入门">
-                <i class="fa fa-chevron-left"></i> gulp 入门
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/28/linux-常用命令/" rel="prev" title="linux 常用命令">
-                linux 常用命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/27/hexo-生成blog/" rel="prev" title="hexo 如何生成blog">
+                hexo 如何生成blog <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -468,8 +494,8 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/27/hexo-生成blog/"
-           data-title="hexo 如何生成blog" data-url="jimscx.top/2016/08/27/hexo-生成blog/">
+      <div class="ds-thread" data-thread-key="2016/08/02/gulp-入门/"
+           data-title="gulp 入门" data-url="jimscx.top/2016/08/02/gulp-入门/">
       </div>
     
   </div>
@@ -571,7 +597,7 @@ mkdir blog用于存放你的hexo项目，cd blog进入目录执行hexo init就�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-环境"><span class="nav-number">1.</span> <span class="nav-text">1.环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-hexo-配置"><span class="nav-number">2.</span> <span class="nav-text">2. hexo 配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-发表个文章"><span class="nav-number">3.</span> <span class="nav-text">3.发表个文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发表也就是这几个命令"><span class="nav-number">4.</span> <span class="nav-text">发表也就是这几个命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使用个美美的主题吧"><span class="nav-number">5.</span> <span class="nav-text">4.使用个美美的主题吧</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gulp-browserSync"><span class="nav-number">1.</span> <span class="nav-text">gulp-browserSync</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是gulp"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.什么是gulp?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-什么是browserSync"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.什么是browserSync?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-实际使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.实际使用</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -547,7 +547,9 @@
 </li>
 </ol>
 <h4 id="1-5-react-的state和props"><a href="#1-5-react-的state和props" class="headerlink" title="1.5. react 的state和props"></a>1.5. react 的state和props</h4><p>props 的区别在于 state只存在组件的内部，props 在所有实例中共享。所以说别调用 this.setProps 或者 直接修改 this.props，把它当成只读的数据最好。props就是牵一发动全身的主。</p>
-<h4 id="1-6-父子组件的通信"><a href="#1-6-父子组件的通信" class="headerlink" title="1.6 父子组件的通信"></a>1.6 父子组件的通信</h4>
+<h4 id="1-6-父子组件的通信"><a href="#1-6-父子组件的通信" class="headerlink" title="1.6 父子组件的通信"></a>1.6 父子组件的通信</h4><p>父子组件的通信主要是通过props</p>
+<h4 id="1-6-1-父组件给子组件传递"><a href="#1-6-1-父组件给子组件传递" class="headerlink" title="1.6.1 父组件给子组件传递"></a>1.6.1 父组件给子组件传递</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">class Parent extends React.Component &#123;</div><div class="line">    constructor(props) &#123;</div><div class="line">      super(props);</div><div class="line">      this.state = &#123;</div><div class="line">        count:0</div><div class="line">      &#125;;</div><div class="line">    &#125;</div><div class="line">    onChange(count) &#123;</div><div class="line">      this.setState(&#123;</div><div class="line">        count:count</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render() &#123;</div><div class="line">      return (</div><div class="line">        &lt;div&gt;</div><div class="line">          &lt;p&gt;这里是父组件&#123;this.state.count&#125;&lt;/p&gt;</div><div class="line">          &lt;Child  order:&apos;test&apos;</div><div class="line">                  method:&#123;this.onchang&#125;</div><div class="line">          /&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">      )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Child extends React.Component &#123;</div><div class="line">    constructor(props) &#123;</div><div class="line">      super(props);</div><div class="line">      this.state = &#123;</div><div class="line">        count:0</div><div class="line">      &#125;;</div><div class="line">    &#125;</div><div class="line">    buttonClickHandle(count) &#123;</div><div class="line">      this.state.count += 1;</div><div class="line">      this.props.method(this.state.count)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render() &#123;</div><div class="line">      return (</div><div class="line">        &lt;div&gt;</div><div class="line">          &lt;button onClick = &#123;this.buttonClickHandle.bind(this)&#125;&gt;操作父组件的count&lt;/button&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">      )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
           
         
       
@@ -1185,6 +1187,152 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/02/gulp-入门/" itemprop="url">
+                  gulp 入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T11:34:57+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端自动化/" itemprop="url" rel="index">
+                    <span itemprop="name">前端自动化</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/02/gulp-入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/gulp-入门/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="gulp-browserSync"><a href="#gulp-browserSync" class="headerlink" title="gulp-browserSync"></a>gulp-browserSync</h1><h3 id="1-什么是gulp"><a href="#1-什么是gulp" class="headerlink" title="1.什么是gulp?"></a>1.什么是<a href="http://gulpjs.com/" target="_blank" rel="external">gulp</a>?</h3><ul>
+<li>可以点击这里了解它<a href="http://i5ting.github.io/stuq-gulp/#101" target="_blank" rel="external">gulp讲解</a></li>
+<li>常用gulp组件<ul>
+<li><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="external">gulp-minify-css</a>压缩css</li>
+<li><a href="http://www.browsersync.io/" target="_blank" rel="external">browser-sync</a>静态文件服务器，同时也支持浏览器自动刷新 </li>
+<li><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="external">gulp-uglify</a>通过UglifyJS来压缩JS文件</li>
+<li><a href="https://www.npmjs.com/package/gulp-concat" target="_blank" rel="external">gulp-concat</a>合并JS</li>
+<li><a href="https://www.npmjs.com/package/gulp-less" target="_blank" rel="external">gulp-less</a>将less预处理为css</li>
+<li><a href="https://www.npmjs.com/package/gulp-sass" target="_blank" rel="external">gulp-sass</a>将sass预处理为css</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-什么是browserSync"><a href="#2-什么是browserSync" class="headerlink" title="2.什么是browserSync?"></a>2.什么是browserSync?</h3><ul>
+<li>可以点击这里了解它<a href="http://www.browsersync.cn/" target="_blank" rel="external">browserSync</a></li>
+</ul>
+<h3 id="3-实际使用"><a href="#3-实际使用" class="headerlink" title="3.实际使用"></a>3.实际使用</h3><ul>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev gulp</div><div class="line">npm install --save-dev browser-sync</div></pre></td></tr></table></figure>
+</li>
+<li><p>请求模块和使用模块</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var browserSync = require(&apos;browser-sync&apos;);</div><div class="line">var less = require(&apos;gulp-less&apos;); //把less文件编译成css文件</div><div class="line"></div><div class="line">//编译less文件</div><div class="line">gulp.task(&apos;build_less&apos;, function () &#123;</div><div class="line">    gulp.src(&quot;./public/css/main.less&quot;)</div><div class="line">      .pipe(less())</div><div class="line">      .pipe(gulp.dest(&apos;./public/css/&apos;))</div><div class="line">      .pipe(browserSync.reload(&#123;stream: true&#125;));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"> // 监听 .less .html 文件</div><div class="line">gulp.task(&apos;less_server&apos;,[&apos;build_less&apos;] ,function () &#123;</div><div class="line">    browserSync.init(&#123;</div><div class="line">      proxy: &quot;http://127.0.0.1:3005/iscroll.html?id=1&amp;openid=2#buy&quot;</div><div class="line">    &#125;)</div><div class="line">    gulp.watch(&apos;./public/css/main.less&apos;, [&apos;build_less&apos;]);</div><div class="line">    gulp.watch(&apos;./public/*.html&apos;,function () &#123;</div><div class="line">      browserSync.reload();</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>* `browserSync.init()` 启动Browsersync服务。这将启动一个服务器，代理服务器或静态服务器，这取决于你实际需要。 
+* `proxy` 开始一个Browsersync代理
+* `browserSync.reload()` 重载，浏览器自动刷新
+* 当gulp监控（watch）一个文件，文件变化的时候就会启动浏览器重新加载，不用我们手动刷新了
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1226,7 +1374,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1243,7 +1391,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
